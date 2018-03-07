@@ -6,4 +6,35 @@
         xmlns:local="clr-namespace:BocceVoloCounter"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="27"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="GhostWhite"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="timerBox" Grid.ColumnSpan="2" Grid.Row="0" Background="LightGray" FontSize="75"
+                 TextAlignment="Center">00:10</TextBox>
+        <TextBox x:Name="scoreBox" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2" Background="LightGray" FontSize="75"
+                 TextAlignment="Center">0/0</TextBox>
+        <Button x:Name="startButton" Grid.Row="1" Grid.ColumnSpan="2" IsDefault="True">Start</Button>
+        <Button x:Name="endButton" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" >End</Button>
+        <Button x:Name="hitButton" Grid.Row="2" Background="Green" KeyUp="Button_KeyUp">Hit</Button>
+        <Button x:Name="missedButton" Grid.Row="2" Grid.Column="1" Background="DarkRed">Missed</Button>
+        <Button x:Name="removeButton" Grid.Row="2" Grid.Column="2">Remove</Button>
+        <Button x:Name="correctButton" Grid.Row="2" Grid.Column="3">Correct</Button>
+    </Grid>
 </Window>
