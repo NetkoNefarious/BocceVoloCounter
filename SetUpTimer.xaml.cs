@@ -11,16 +11,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Timers;
 
 namespace BocceVoloCounter
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SetUpTimer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SetUpTimer : UserControl
     {
-        public MainWindow()
+        public SetUpTimer()
         {
             InitializeComponent();
         }
