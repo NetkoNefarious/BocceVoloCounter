@@ -52,6 +52,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindowControl.xaml.cs">
+      <DependentUpon>MainWindowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="SetUpTimer.xaml.cs">
       <DependentUpon>SetUpTimer.xaml</DependentUpon>
     </Compile>
@@ -67,6 +71,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainWindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SetUpTimer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

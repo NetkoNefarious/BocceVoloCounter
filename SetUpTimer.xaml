@@ -5,32 +5,74 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BocceVoloCounter"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="200" d:DesignWidth="300" d:DataContext="MainWindowControl">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="27"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="Background" Value="GhostWhite"/>
         </Style>
-        
+
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="75"/>
+            <Setter Property="Width" Value="90"/>
         </Style>
-            
+
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="75"/>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
-            <TextBox x:Name="timerMinutes" FontSize="75">00</TextBox>
+            <TextBox x:Name="timerMinutes" FontSize="75" Text="19"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="buttonMinutesUp" FontSize="40" RenderTransformOrigin="0.5,0.5"
+                        Click="ButtonMinutesUp_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="180"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>V
+                </Button>
+                <Button x:Name="buttonMinutesDown" FontSize="40" Grid.Row="1"
+                        Click="ButtonMinutesDown_Click">V</Button>
+            </Grid>
             <TextBlock FontSize="75">:</TextBlock>
             <TextBox x:Name="timerSeconds" FontSize="75">10</TextBox>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="buttonSecondsUp" FontSize="40" RenderTransformOrigin="0.5,0.5"
+                        Click="ButtonSecondsUp_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="180"/>
+                        </TransformGroup>
+                    </Button.RenderTransform> V
+                </Button>
+                <Button x:Name="buttonSecondsDown" FontSize="40" Grid.Row="1"
+                        Click="ButtonSecondsDown_Click">V</Button>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button x:Name="acceptButton" MinWidth="100" Click="AcceptButton_Click">Accept</Button>
+            <Button x:Name="cancelButton" Margin="10, 0, 0, 0" MinWidth="100">Cancel</Button>
         </StackPanel>
     </Grid>
 </UserControl>

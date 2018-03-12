@@ -22,6 +22,33 @@ namespace BocceVoloCounter
         public SetUpTimer()
         {
             InitializeComponent();
+            MainWindowControl mainWindowControl = new MainWindowControl();
+            this.DataContext = mainWindowControl;
+        }
+
+        private void ButtonMinutesUp_Click(object sender, RoutedEventArgs e)
+        {
+            timerMinutes.Text = (int.Parse(timerMinutes.Text) + 1).ToString();
+        }
+
+        private void ButtonMinutesDown_Click(object sender, RoutedEventArgs e)
+        {
+            timerMinutes.Text = (int.Parse(timerMinutes.Text) - 1).ToString();
+        }
+
+        private void ButtonSecondsUp_Click(object sender, RoutedEventArgs e)
+        {
+            timerSeconds.Text = (int.Parse(timerSeconds.Text) + 1).ToString();
+        }
+
+        private void ButtonSecondsDown_Click(object sender, RoutedEventArgs e)
+        {
+            timerSeconds.Text = (int.Parse(timerSeconds.Text) - 1).ToString();
+        }
+
+        private void AcceptButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
