@@ -7,6 +7,15 @@ namespace BocceVoloCounter
 {
     class Player
     {
-        string name;
+        string firstName;
+        string lastName;
+        string bocceClub;
+
+        public Player(string firstName, string lastName, string bocceClub)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.bocceClub = bocceClub;
+        }
     }
 }

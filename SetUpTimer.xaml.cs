@@ -17,13 +17,11 @@ namespace BocceVoloCounter
     /// <summary>
     /// Interaction logic for SetUpTimer.xaml
     /// </summary>
-    public partial class SetUpTimer : UserControl
+    public partial class SetUpTimer : Window
     {
         public SetUpTimer()
         {
             InitializeComponent();
-            MainWindowControl mainWindowControl = new MainWindowControl();
-            this.DataContext = mainWindowControl;
         }
 
         private void ButtonMinutesUp_Click(object sender, RoutedEventArgs e)
@@ -48,7 +46,7 @@ namespace BocceVoloCounter
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

@@ -56,9 +56,11 @@
       <DependentUpon>MainWindowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="SetUpTimer.xaml.cs">
       <DependentUpon>SetUpTimer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Timer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

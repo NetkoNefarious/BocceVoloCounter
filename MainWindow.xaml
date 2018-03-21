@@ -5,14 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BocceVoloCounter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="325" Width="500">
+        Title="MainWindow" Height="Auto" Width="500" SizeToContent="Height">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Click="ButtonClick">Switch</Button>
-        <ContentControl x:Name="contentControl" Grid.Row="1"/>
-    </Grid>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="27"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="GhostWhite"/>
+            <Setter Property="Height" Value="80"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <Menu>
+            <MenuItem Header="_File">
+                
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 0 -->
+            <TextBlock x:Name="timerBox" Grid.ColumnSpan="2" Grid.Row="0" Background="LightGray" FontSize="75"
+                 TextAlignment="Center" x:FieldModifier="public"/>
+            <TextBlock x:Name="scoreBox" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2" Background="LightGray" FontSize="75"
+                 TextAlignment="Center">0/0</TextBlock>
+            
+            <!-- Row 1 -->
+            <Button x:Name="startButton" Grid.Row="1" IsDefault="True" Click="TimerButton_Click">Start</Button>
+            <Button x:Name="stopButton" Grid.Row="1" Grid.Column="1" Click="TimerButton_Click">End</Button>
+            <Button x:Name="setUpTimerButton" Grid.Row="1" Grid.Column="2" Click="TimerButton_Click">
+                Set up</Button>
+            <Button x:Name="resetTimerButton" Grid.Row="1" Grid.Column="3" Click="TimerButton_Click">Reset</Button>
+
+            <!-- Row 2 -->
+            <Button x:Name="hitButton" Grid.Row="2" Background="Green" KeyUp="Button_KeyUp"
+                Click="ScoreButton_Click">Hit</Button>
+            <Button x:Name="missButton" Grid.Row="2" Grid.Column="1" Background="DarkRed"
+                Click="ScoreButton_Click">Missed</Button>
+            <Button x:Name="removeButton" Grid.Row="2" Grid.Column="2"
+                Click="ScoreButton_Click">Remove</Button>
+            <Button x:Name="correctButton" Grid.Row="2" Grid.Column="3"
+                Click="ScoreButton_Click">Correct</Button>
+        </Grid>
+    </StackPanel>
+    
 </Window>
