@@ -21,13 +21,13 @@ namespace BocceVoloCounter
     public partial class MainWindow : Window
     {
         private Timer timer;
-        private Score score;
 
         public MainWindow()
         {
             InitializeComponent();
-            score = new Score();
+
             timer = new Timer(0, 10);
+            this.DataContext = timer;
             timerBox.Text = timer.setTimer.ToString(@"mm\:ss");
         }
 
@@ -46,14 +46,14 @@ namespace BocceVoloCounter
                     timerBox.Background = Brushes.LightGray;
                     break;
                 case "setTimerButton":
-                    score.Remove();
+                    Score.Remove();
                     break;
                 case "resetTimerButton":
-                    score.Correct();
+                    Score.Correct();
                     break;
             }
 
-            scoreBox.Text = score.UpdateScore();
+            scoreBox.Text = Score.UpdateScore();
         }
 
         private void Button_KeyUp(object sender, KeyEventArgs e)
@@ -69,25 +69,28 @@ namespace BocceVoloCounter
 
         private void ScoreButton_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-
-            switch(button.Name)
+            if (timer.isAlive)
             {
-                case "hitButton":
-                    score.Hit();
-                    break;
-                case "missButton":
-                    score.Miss();
-                    break;
-                case "removeButton":
-                    score.Remove();
-                    break;
-                case "correctButton":
-                    score.Correct();
-                    break;
-            }
+                Button button = (Button)sender;
 
-            scoreBox.Text = score.UpdateScore();
+                switch (button.Name)
+                {
+                    case "hitButton":
+                        Score.Hit();
+                        break;
+                    case "missButton":
+                        Score.Miss();
+                        break;
+                    case "removeButton":
+                        Score.Remove();
+                        break;
+                    case "correctButton":
+                        Score.Correct();
+                        break;
+                }
+
+                scoreBox.Text = Score.UpdateScore();
+            }
         }
     }
 }

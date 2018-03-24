@@ -6,16 +6,6 @@
         xmlns:local="clr-namespace:BocceVoloCounter"
         mc:Ignorable="d"
         Title="MainWindow" Height="Auto" Width="500" SizeToContent="Height">
-
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="FontSize" Value="27"/>
-            <Setter Property="FontWeight" Value="DemiBold"/>
-            <Setter Property="Background" Value="GhostWhite"/>
-            <Setter Property="Height" Value="80"/>
-        </Style>
-    </Window.Resources>
-
     <StackPanel Orientation="Vertical">
         <Menu>
             <MenuItem Header="_File">
@@ -23,6 +13,21 @@
             </MenuItem>
         </Menu>
         <Grid>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="27"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="Background" Value="GhostWhite"/>
+                    <Setter Property="Height" Value="80"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Setter Property="FontSize" Value="75"/>
+                    <Setter Property="Grid.ColumnSpan" Value="2"/>
+                </Style>
+            </Grid.Resources>
+            
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -37,11 +42,14 @@
             </Grid.ColumnDefinitions>
 
             <!-- Row 0 -->
-            <TextBlock x:Name="timerBox" Grid.ColumnSpan="2" Grid.Row="0" Background="LightGray" FontSize="75"
-                 TextAlignment="Center" x:FieldModifier="public"/>
-            <TextBlock x:Name="scoreBox" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2" Background="LightGray" FontSize="75"
-                 TextAlignment="Center">0/0</TextBlock>
-            
+            <TextBlock x:Name="timerBox" Grid.Row="0"/>
+            <TextBlock x:Name="scoreBox" Grid.Row="0" Grid.Column="2" Text="0/0">
+                <!--MultiBinding StringFormat={}{0}/{1}>
+                    <Binding Path="HitScore"/>
+                    <Binding Path="HitList"/>
+                </-->
+            </TextBlock>
+                   
             <!-- Row 1 -->
             <Button x:Name="startButton" Grid.Row="1" IsDefault="True" Click="TimerButton_Click">Start</Button>
             <Button x:Name="stopButton" Grid.Row="1" Grid.Column="1" Click="TimerButton_Click">End</Button>

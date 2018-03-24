@@ -10,6 +10,7 @@ namespace BocceVoloCounter
     class Timer
     {
         public TimeSpan setTimer;
+        public bool isAlive = false;
         private DispatcherTimer DispatcherTimerInstance { get; set; }
 
         // Constructiors
@@ -48,11 +49,13 @@ namespace BocceVoloCounter
         {
             DispatcherTimerInstance.Tick += TimerTick;
             DispatcherTimerInstance.Start();
+            isAlive = true;
         }
 
         public void Stop()
         {
             DispatcherTimerInstance.Stop();
+            isAlive = false;
         }
 
         private void SetUp()

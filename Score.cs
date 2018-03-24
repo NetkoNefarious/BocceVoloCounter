@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace BocceVoloCounter
 {
-    class Score
+    public static class Score
     {
-        private int HitScore { get; set; }
-        private Stack<bool> HitList { get; set; }
+        private static int HitScore { get; set; } = 0;
+        private static Stack<bool> HitList { get; set; } = new Stack<bool>();
 
-        public Score()
-        {
-            HitScore = 0;
-            HitList = new Stack<bool>();
-        }
-
-        public void Hit()
+        public static void Hit()
         {
             HitScore++;
             HitList.Push(true);
         }
 
-        public void Miss()
+        public static void Miss()
         {
             HitList.Push(false);
         }
 
-        public void Remove()
+        public static void Remove()
         {
             if (HitList.Count > 0)
             {
@@ -38,7 +33,7 @@ namespace BocceVoloCounter
             }
         }
 
-        public void Correct()
+        public static void Correct()
         {
             if (HitList.Count > 0)
             {
@@ -51,9 +46,15 @@ namespace BocceVoloCounter
             }
         }
 
-        public string UpdateScore()
+        public static string UpdateScore()
         {
             return String.Format("{0}/{1}", HitScore, HitList.Count);
+        }
+
+        public static void Reset()
+        {
+            HitScore = 0;
+            HitList.Clear();
         }
     }
 }
