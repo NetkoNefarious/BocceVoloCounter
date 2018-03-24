@@ -8,8 +8,8 @@ namespace BocceVoloCounter
 {
     public static class Score
     {
-        private static int HitScore { get; set; } = 0;
-        private static Stack<bool> HitList { get; set; } = new Stack<bool>();
+        public static int HitScore { get; set; } = 0;
+        public static Stack<bool> HitList { get; set; } = new Stack<bool>();
 
         public static void Hit()
         {

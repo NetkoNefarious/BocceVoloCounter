@@ -9,6 +9,7 @@ namespace BocceVoloCounter
 {
     class Timer
     {
+        private TimeSpan DefaultTimer { get; set; }
         public TimeSpan setTimer;
         public bool isAlive = false;
         private DispatcherTimer DispatcherTimerInstance { get; set; }
@@ -16,7 +17,8 @@ namespace BocceVoloCounter
         // Constructiors
         public Timer(int minutes = 0, int seconds = 0)
         {
-            setTimer = new TimeSpan(0, minutes, seconds);
+            DefaultTimer = setTimer = new TimeSpan(0, minutes, seconds);
+
 
             DispatcherTimerInstance = new DispatcherTimer()
             {
@@ -58,10 +60,15 @@ namespace BocceVoloCounter
             isAlive = false;
         }
 
-        private void SetUp()
+        internal void Reset()
         {
-            SetUpTimer setUpTimer = new SetUpTimer();
-            setUpTimer.Show();
+            setTimer = DefaultTimer;
+        }
+
+        internal void SetUp()
+        {
+            SetUpTimer setUpTimerWindow = new SetUpTimer();
+            setUpTimerWindow.Show();
         }
     }
 }

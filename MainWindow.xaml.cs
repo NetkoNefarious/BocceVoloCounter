@@ -46,10 +46,10 @@ namespace BocceVoloCounter
                     timerBox.Background = Brushes.LightGray;
                     break;
                 case "setTimerButton":
-                    Score.Remove();
+                    timer.SetUp();
                     break;
                 case "resetTimerButton":
-                    Score.Correct();
+                    timer.Reset();
                     break;
             }
 
